@@ -3,7 +3,13 @@ angular.module('articlesCtrl', []).controller('articlesController', function($sc
     $scope.tagline = 'Create new Article';
     $scope.info = 'Write your article';
 
-    $scope.submit = function () {
+    articleService.showUserArticles($rootScope.session).then(function (res) {
+
+           $scope.items = res.data;
+
+       });
+
+    $scope.submitArticle = function () {
 
         var articleTitle = $scope.article.articleTitle|| "";
         var articleContent = $scope.article.articleContent || "";

@@ -11,6 +11,13 @@ var articleSchema = new Schema({
 var articleModel = mongoose.model('articles', articleSchema);
 
 module.exports = {
+
+  findUserArticles: function (name, callback) {
+      articleModel.find({userName: name}, function (err, user) {
+          callback(user);
+      })
+  },
+
   newArticle: function (title, content, user) {
 
       var article = new articleModel({

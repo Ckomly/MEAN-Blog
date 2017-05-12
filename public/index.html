@@ -16,15 +16,18 @@
     <script src="libs/angular-route/angular-route.min.js"></script>
 
     <!-- ANGULAR CUSTOM -->
+    <!-- ANGULAR CONTROLLERS-->
     <script src="javascripts/controllers/mainController.js"></script>
     <script src="javascripts/controllers/usersController.js"></script>
     <script src="javascripts/controllers/profilController.js"></script>
     <script src="javascripts/controllers/registerController.js"></script>
     <script src="javascripts/controllers/loginController.js"></script>
     <script src="javascripts/controllers/articlesController.js"></script>
+    <!-- ANGULAR SERVICES-->
     <script src="javascripts/services/loginServices.js"></script>
     <script src="javascripts/services/userServices.js"></script>
     <script src="javascripts/services/articleServices.js"></script>
+    <!-- ANGULAR ROUTES&CO-->
     <script src="javascripts/appRoute.js"></script>
     <script src="javascripts/app.js"></script>
 </head>
@@ -43,6 +46,7 @@
             <li ng-if="!session" ><a  href="/register">Register</a></li>
             <li><a  href="/users">Users</a></li>
             <li ng-if="session"><a  href="/newArticle">New article</a></li>
+            <li ng-if="session"><a  href="/userArticles">My articles</a></li>
             <li ng-if="session"><a  href="/profil">Profil</a></li>
             <li ng-if="session" ng-click="clearSession()"><a  href="#">Logout</a></li>
         </ul>

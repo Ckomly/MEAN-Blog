@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+    <h1>Articles of {{session}}</h1>
+
+    <p>{{ tagline }}</p>
+
+    <div ng-controller="articlesController">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Content</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in items">
+                  <td>{{ item.articleTitle }}</td>
+                  <td>{{ item.articleContent }}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+</div>

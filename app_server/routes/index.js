@@ -25,6 +25,10 @@ router.post('/newArticle', function(req, res, next) {
   ctrlArticles.createArticle(req, res);
 });
 
+router.get('/articles/:userData', function(req, res, next) {
+  ctrlArticles.showUserArticles(req, res);
+});
+
 router.post('/register', function(req, res, next) {
   ctrlAuth.register(req, res);
 });

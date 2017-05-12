@@ -36,6 +36,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'articlesController'
         })
 
+        .when('/userArticles', {
+            templateUrl: 'views/userArticles.html',
+            controller: 'articlesController'
+        })
+
     $locationProvider.html5Mode(true);
 
 }]);

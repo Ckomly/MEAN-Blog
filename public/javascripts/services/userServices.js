@@ -7,7 +7,7 @@ angular.module('userService', []).factory('userService', ['$http', function($htt
 
         showProfil : function(userData) {
             console.log(userData);
-            return $http.get('/users/'+userData, userData);
+            return $http.get('/articles/'+userData, userData);
         }
     }
 

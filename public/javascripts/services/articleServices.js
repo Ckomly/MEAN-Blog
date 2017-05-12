@@ -8,6 +8,11 @@ angular.module('articleService', []).factory('articleService', ['$http', functio
         createArticle : function(articleData) {
             console.log(articleData);
             return $http.post('/newArticle', articleData);
+        },
+
+        showUserArticles : function(userData) {
+            console.log(userData);
+            return $http.get('/articles/'+userData, userData);
         }
     }
 
