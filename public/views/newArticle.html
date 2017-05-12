@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+    <h1>Article  :</h1>
+
+    <p>{{ tagline }}</p>
+
+    <div ng-controller="articlesController">
+        <em>{{ session }}</em>
+        <br><br>
+        <form novalidate>
+            Title :<br>
+            <input type="text" ng-model="article.articleTitle"><br>
+            Content :<br>
+            <input type="text" ng-model="article.articleContent">
+            <br>
+            Name :<br>
+            <input type="text" value="{{ session }}"><br>
+            <br><br>
+            <button ng-click="submit()">Send</button>
+
+        </form>
+    </div>
+
+</div>

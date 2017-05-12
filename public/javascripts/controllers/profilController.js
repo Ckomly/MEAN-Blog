@@ -8,7 +8,6 @@ angular.module('profilCtrl', []).controller('profilController', function($scope,
 
            $scope.items = res.data;
 
-           console.log($scope.items);
        });
 
 });

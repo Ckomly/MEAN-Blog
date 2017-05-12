@@ -31,6 +31,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'profilController'
         })
 
+        .when('/newArticle', {
+            templateUrl: 'views/newArticle.html',
+            controller: 'articlesController'
+        })
+
     $locationProvider.html5Mode(true);
 
 }]);
