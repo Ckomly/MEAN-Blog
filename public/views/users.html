@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+    <h1>Users</h1>
+
+    <p>{{ tagline }}</p>
+
+    <div ng-controller="usersController">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Mail</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in items">
+                  <td>{{ item.userName }}</td>
+                  <td>{{ item.userEmail }}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+</div>

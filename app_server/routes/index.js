@@ -8,6 +8,10 @@ router.get('/users', function(req, res, next) {
   ctrlUsers.usersReadAll(req,res);
 });
 
+router.get('/users/:userData', function(req, res, next) {
+  ctrlUsers.usersReadOne(req,res);
+});
+
 router.put('/users/:userid', function(req, res, next) {
   ctrlUsers.usersUpdateOne(req,res);
 });

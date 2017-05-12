@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="favicon.ico">
     <meta charset="UTF-8">
     <base href="/">
 
@@ -16,9 +17,12 @@
 
     <!-- ANGULAR CUSTOM -->
     <script src="javascripts/controllers/mainController.js"></script>
+    <script src="javascripts/controllers/usersController.js"></script>
+    <script src="javascripts/controllers/profilController.js"></script>
     <script src="javascripts/controllers/registerController.js"></script>
     <script src="javascripts/controllers/loginController.js"></script>
     <script src="javascripts/services/loginServices.js"></script>
+    <script src="javascripts/services/userServices.js"></script>
     <script src="javascripts/appRoute.js"></script>
     <script src="javascripts/app.js"></script>
 </head>
@@ -27,15 +31,17 @@
 
     <!-- HEADER -->
     <nav class="navbar navbar-inverse">
-        <div class="navbar-header">          
-            <p><a class="navbar-brand" href="/">MEAN:rush</a>  {{ session }}</p>
+        <div class="navbar-header">
+            <p><a class="navbar-brand" href="/">MEAN:rush</a></p>
         </div>
 
         <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
         <ul class="nav navbar-nav">
-            <li ng-if="session == null" ><a  href="/login">Login</a></li>
-            <li ng-if="session == null" ><a  href="/register">Register</a></li>
-            <li ng-if="session != null" ng-click="logout()"><a  href="#">Logout</a></li>
+            <li ng-if="!session" ><a  href="/login">Login</a></li>
+            <li ng-if="!session" ><a  href="/register">Register</a></li>
+            <li><a  href="/users">Users</a></li>
+            <li ng-if="session"><a  href="/profil">Profil</a></li>
+            <li ng-if="session" ng-click="clearSession()"><a  href="#">Logout</a></li>
         </ul>
     </nav>
 

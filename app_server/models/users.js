@@ -8,7 +8,7 @@ var userSchema = new Schema({
     userPassword: String
 });
 
-var userModel = mongoose.model('user', userSchema);
+var userModel = mongoose.model('users', userSchema);
 
 module.exports = {
 
@@ -28,6 +28,18 @@ module.exports = {
     findUser: function (email, callback) {
         userModel.findOne({userEmail: email}, function (err, user) {
             callback(user);
+        })
+    },
+
+    findProfil: function (name, callback) {
+        userModel.findOne({userName: name}, function (err, user) {
+            callback(user);
+        })
+    },
+
+    findAllUsers: function (callback) {
+        userModel.find({}, function(err, user) {
+          callback(user);
         })
     }
 

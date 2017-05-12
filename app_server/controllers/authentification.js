@@ -12,7 +12,7 @@ module.exports = {
         userModel.findUser(userEmail, function (data) {
             if (data){
                 res.status(200);
-                res.end("Fail !");
+                res.end("Not OK");
             }
         });
 
@@ -22,11 +22,11 @@ module.exports = {
                 if (userName && userEmail && userPassword) {
                     userModel.newUser(userName, userEmail, userPassword);
                     res.status(200);
-                    res.end("Worked !")
+                    res.end("OK")
                 }
                 else {
                     res.status(200);
-                    res.end("Fail !");
+                    res.end("Not OK");
                 }
             }
         });
@@ -38,9 +38,10 @@ module.exports = {
         var userPassword = req.body['userPassword'];
 
         userModel.findUser(userEmail, function (data) {
-            console.log('DATA -> ',data);
             if (data) {
-                bcrypt.compare(userPassword, data.userPassword, function (err, res) {
+                bcrypt.compare(userPassword, data.userPassword, function (err, res)
+                {
+                    //req.session.userId = data._id;
                     response.send(data);
                 });
             }
@@ -48,6 +49,10 @@ module.exports = {
                 response.end("Email or password is wrong.");
             }
         });
+    },
+
+    checkAuth : function(req, res) {
+        req.session.userId;
     }
 
 };

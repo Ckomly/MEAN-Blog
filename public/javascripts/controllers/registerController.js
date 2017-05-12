@@ -1,4 +1,4 @@
-angular.module('registerCtrl', []).controller('registerController', function($scope, loginService) {
+angular.module('registerCtrl', []).controller('registerController', function($scope, $location, loginService) {
 
     $scope.info = 'Please fill the form :';
     $scope.tagline = 'Register Controller';
@@ -17,6 +17,7 @@ angular.module('registerCtrl', []).controller('registerController', function($sc
                 $scope.user.userEmail = "";
                 $scope.user.userPassword = "";
             });
+            $location.path('/');
         }
         else {
             $scope.info = 'Please use valid credentials !';

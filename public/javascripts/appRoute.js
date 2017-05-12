@@ -21,6 +21,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'deleteController'
         })
 
+        .when('/users', {
+            templateUrl: 'views/users.html',
+            controller: 'usersController'
+        })
+
+        .when('/profil', {
+            templateUrl: 'views/profil.html',
+            controller: 'profilController'
+        })
+
     $locationProvider.html5Mode(true);
 
 }]);

@@ -1,9 +1,7 @@
 angular.module('loginCtrl', []).controller('loginController', function($scope, $rootScope, $location, loginService) {
 
     $scope.tagline = 'Login Controller';
-
     $scope.info = 'Please fill the form :';
-    $scope.tagline = 'Login Controller';
 
     $scope.submit = function () {
         var userEmail = $scope.user.userEmail || "";
@@ -12,14 +10,15 @@ angular.module('loginCtrl', []).controller('loginController', function($scope, $
         if (userEmail.length > 4 && userPassword.length > 4)
         {
             loginService.login($scope.user).then(function (res) {
-                //reset les input
-                console.log(res.data._id);
+                //reset inputs
                 $scope.user.userEmail = "";
                 $scope.user.userPassword = "";
                 //if user is logged -> redirect to home.
-                if(res.data){
-                  sessionStorage.setItem("session", res.data._id);
-                  $rootScope.session = sessionStorage.getItem("session") || "";
+                console.log(res.data.userName);
+                if(res.data._id)
+                {
+                  sessionStorage.setItem("session", res.data.userName);
+                  $rootScope.session = sessionStorage.getItem("session");
                   $location.path('/');
                 }
             });
